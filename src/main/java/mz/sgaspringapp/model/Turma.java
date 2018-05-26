@@ -10,6 +10,9 @@ public class Turma {
 	@Id
 	private int codigo;
 	private String nome;
+	
+	@ManyToOne
+	private Classe classe;
 		
 	public Turma() {
 		
@@ -34,6 +37,14 @@ public class Turma {
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+
+	public Classe getClasse() {
+		return classe;
+	}
+
+	public void setClasse(Classe classe) {
+		this.classe = classe;
 	}
 
 }
