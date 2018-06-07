@@ -8,17 +8,24 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import mz.sgaspringapp.model.Turma;
+import mz.sgaspringapp.service.ClasseService;
 import mz.sgaspringapp.service.TurmaService;
 
 @Controller
 public class TurmaController {
 	
 	@Autowired
+	private ClasseService cSer;
+	
+	@Autowired
 	TurmaService tSer;
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/turma")
-	public String cadastroTurma() {
-		return "cadastro/turma";
+	public ModelAndView cadastroTurma() {
+		ModelAndView mv = new ModelAndView("cadastro/turma");
+		mv.addObject("lista",cSer.todasClasses());
+		
+		return mv;
 	}
 	
 	@RequestMapping(method = RequestMethod.POST, value = "/turma")

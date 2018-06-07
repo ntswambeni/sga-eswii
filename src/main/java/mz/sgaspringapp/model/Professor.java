@@ -1,9 +1,11 @@
 package mz.sgaspringapp.model;
 
 import java.sql.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
 @Entity
 public class Professor {
@@ -16,6 +18,9 @@ public class Professor {
 	private String formacao;
 	private int telefone;
 	private String morada;
+	
+	@ManyToMany
+	private List <Disciplina> disciplinas;
 	
 	public Professor() {
 		
