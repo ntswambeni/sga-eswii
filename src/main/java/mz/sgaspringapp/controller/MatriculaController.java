@@ -5,10 +5,15 @@
  */
 package mz.sgaspringapp.controller;
 
+import org.springframework.web.bind.annotation.RequestMapping;
+
 /**
  *
  * @author Carlos Lopes
  */
 public class MatriculaController {
-    
+  @RequestMapping( value = "/Matricula")
+	public String cadastroClasse() {
+		return "cadastro/Matricula";
+	}  
 }
