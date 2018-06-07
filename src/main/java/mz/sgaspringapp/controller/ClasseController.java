@@ -76,10 +76,15 @@ public class ClasseController {
 	@RequestMapping(method = RequestMethod.POST, value = "/classe/{codigoClasse}/turma")
 	public String adicionarTurma(@PathVariable ("codigoClasse") int codigoClasse, Turma turma) {
 		Classe classe = cr.findByCodigo(codigoClasse);
-		classe.getTurma().add(turma);
-		tSer.cadastraTurma(turma);
-		cSer.cadastraClasse(classe);
+		turma.setClasse(classe);
 		
+		List <Turma> listaTurma = classe.getTurma();
+		listaTurma.add(turma);
+		classe.setTurma(listaTurma);
+		
+		
+		
+		tSer.cadastraTurma(turma);
 		
 		return "cadastro/turma";
 	}

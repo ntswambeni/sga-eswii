@@ -1,6 +1,7 @@
 package mz.sgaspringapp.model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
@@ -8,9 +9,15 @@ import javax.persistence.ManyToOne;
 public class Turma {
 
 	@Id
+	@GeneratedValue
 	private int codigo;
 	private String nome;
-		
+	private int vagas;
+	
+	@ManyToOne
+	private Classe classe;
+	
+
 	public Turma() {
 		
 	}
@@ -34,6 +41,22 @@ public class Turma {
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+
+	public Classe getClasse() {
+		return classe;
+	}
+
+	public void setClasse(Classe classe) {
+		this.classe = classe;
+	}
+
+	public int getVagas() {
+		return vagas;
+	}
+
+	public void setVagas(int vagas) {
+		this.vagas = vagas;
 	}
 
 }

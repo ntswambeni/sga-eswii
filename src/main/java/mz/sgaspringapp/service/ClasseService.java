@@ -28,10 +28,8 @@ public class ClasseService {
 		return lista;
 	}
 	
-	public List <Classe> encontraClasse(int codigo) {
-		List<Classe> lista = new ArrayList <>();
-		lista.add(cR.findByCodigo(codigo));
-		return lista;
+	public Classe encontraClasse(int codigo) {
+		return cR.findByCodigo(codigo);		
 	}
 	
 	public void apagaClasse(int codigo) {

@@ -88,17 +88,32 @@
 				</div>
 				
 				<div>
-					<table class="table table-hover table-responsive-sm">
-					  <thead>
-					    <tr>
+					<table class="table table-hover table-responsive-sm" th:each="classe: ${classes}">
+					  <thead >
+					  <tr >
+					  	<th scope="row" class="text-center"><span th:text = "${classe.descricao}"></span></th>
+					    
 					      <th scope="col" class="text-center">Codigo</th>
 					      <th scope="col" class="text-center">Nome</th>
 					      <th scope="col" class="text-center">Editar</th>
 					      <th scope="col" class="text-center">Apagar</th>
-					    </tr>
+					    
+					   </tr>
+					   
 					  </thead>
-					  <tbody>
-					    <tr th:each = "disciplina: ${lista}">
+					  <tbody  th:each = "disciplina: ${lista}">
+					    <!--<tr th:each = "disciplina: ${lista}">
+					      <td class="text-center"><span th:text = "${disciplina.codigo}"></span></td>
+					      <td class="text-center" th:each="classe: ${classes}">
+					      	<span  th:switch="${classe.codigo}" th:case="${disciplina.classefk}" th:text = "${classe.descricao}"></span>					      	
+					      </td>
+					      <td class="text-center"><span th:text = "${disciplina.nomeDisciplina}"></span></td>
+					      <td class="text-center"><a th:href="${(#mvc.url('DC#actualizarDisciplina').arg(0, disciplina.codigo)).build()}"><i class="fas fa-pencil-alt"></i></a></td>
+					      <td class="text-center"><a th:href = "${(#mvc.url('DC#apagarDisciplina').arg(0, disciplina.codigo)).build()}"><i class="fas fa-trash"></i></a></td>
+					    </tr>-->
+					    
+					    <tr th:if="${classe.codigo}==${disciplina.classefk}">
+					      <td colspan="${#lists.size(lista)}-1"></td>
 					      <td class="text-center"><span th:text = "${disciplina.codigo}"></span></td>
 					      <td class="text-center"><span th:text = "${disciplina.nomeDisciplina}"></span></td>
 					      <td class="text-center"><a th:href="${(#mvc.url('DC#actualizarDisciplina').arg(0, disciplina.codigo)).build()}"><i class="fas fa-pencil-alt"></i></a></td>

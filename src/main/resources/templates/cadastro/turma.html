@@ -100,10 +100,16 @@
 				<div class="container justify-content-center border rounded">
 						<form class="p-2" method="post">
 							<div class="form-group">
-								<label for="codigo">Codigo:</label>
+								<label for="cl">Classe: </label>
+								<select class="form-control" name="classefk">
+									<option th:each = "classe: ${lista}" th:value = "${classe.codigo}" th:text = "${classe.descricao}"></option>
+								</select>
+							</div>
+							<!-- <div class="form-group">
+								<label for="codigo">Codigo da Turma:</label>
 								
 								<input type="number" name="codigo" value="" placeholder="Introduza o codigo da Turma" class="form-control"/>
-							</div>
+							</div> -->
 							<div class="form-group">
 								<label for="nome">Nome:</label>
 								<input type="text" name="nome" value="" placeholder="Introduza o Nome da Turma" class="form-control"/>

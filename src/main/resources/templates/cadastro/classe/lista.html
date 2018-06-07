@@ -100,7 +100,7 @@
 					  <tbody>
 					    <tr th:each = "classe: ${lista}">
 					      <td class="text-center"><span th:text = "${classe.codigo}"></span></td>
-					      <td class="text-center"><span th:text = "${classe.descricao}"></span></td>
+					      <td class="text-center"><a th:href = "${(#mvc.url('CC#adicionarTurma').arg(0, classe.codigo)).build()}"><span th:text = "${classe.descricao}"></span></a></td>
 					      <td class="text-center"><a th:href = "${(#mvc.url('CC#actualizarClasse').arg(0, classe.codigo)).build()}"><i class="fas fa-pencil-alt"></i></a></td>
 					      <td class="text-center"><a th:href = "${(#mvc.url('CC#apagarClasse').arg(0, classe.codigo)).build()}"><i class="fas fa-trash"></i></a></td>
 					    </tr>
